@@ -1,0 +1,11 @@
+<a
+    target="_blank"
+    class="nerdlink"
+    href="{{ .URL | safeURL }}">
+    {{ $icon := index site.Data.socialIcons (lower .Identifier) | safeHTML }}
+    {{ if $icon }}
+        {{ $icon | safeHTML }}
+    {{ else }}
+        {{ .Name }}
+    {{ end }}
+</a>

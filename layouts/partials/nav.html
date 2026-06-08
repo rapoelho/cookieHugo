@@ -1,0 +1,29 @@
+<nav class="siteNav">
+	<div class="titleSearch">
+		<div class="titleContainer">		
+			<a href="/">
+			   <img src='{{ .Site.Params.Customization.Logo | default "/images/site/logo.webp" }}' class="siteLogo"/>
+			</a>
+			
+			<div class="titleNav">
+				<div class="titleSite">  
+					<a class="title" href="/">{{ .Site.Title | default "Hugo Cookie" }}</a>
+				</div>			 
+				<ul class="menu"> 
+					{{ range site.Params.Posts }}
+						<li><a href="/{{ . }}/">{{ . | humanize }}</a></li>
+					{{ end }}		
+								
+					{{ range .Site.Menus.main }}
+						<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+					{{ end }}
+
+					<li><a href="/archives/">{{ i18n "allPosts" | default "Archives" }}</a></li>
+					<li><a class="searchButton" href="/search/"> {{ i18n "search" | default "Search" }}</a></li>
+				</ul>	
+			</div>	
+		</div>
+	</div>
+	{{- partial "socialLinks.html" . -}}
+</nav>
+

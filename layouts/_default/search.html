@@ -1,0 +1,11 @@
+{{ define "main" }}
+	
+	<div class="postList">
+		<main>
+			<h1>{{ i18n "searchPage" | default "Search Content" }}</h1>
+			<div class="searchContent">
+				{{- partial "search.html" . -}} 
+			</div>
+		</main>	
+	</div>
+{{ end }}

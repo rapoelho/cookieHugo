@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="postList">
+	<div class="errorPage">
+		<span class="errorBadge">{{ T "errorBadge" | default "How bad... no Cookies for you :(" }}</span>
+		
+		<!-- Título principal -->
+		<h1 class="errorTitle">Oops!</h1>
+		
+		<!-- Mensagem explicativa exata da sua imagem -->
+		<p class="errorDescription">
+			{{ T "errorDescription" | default "Sorry, but we couldn't find the page you are looking for. Maybe the page was deleted, renamed, is temporarily unavailable, or never existed. You can search for something else on the site." }}
+		</p>
+
+		<!-- Barra de busca do Pagefind integrada para reter o usuário (Opcional, mas altamente recomendado) -->
+		<div class="errorSearchbox">
+			{{ partial "search.html" . }}
+		</div>
+	</div>
+</div>
+{{ end }}

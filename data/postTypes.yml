@@ -1,0 +1,17 @@
+types:
+  - id: posts
+    icon: 📰
+    label: "Artigo Completo"
+    cover: true
+    #~ border_color: "#f3a072"
+    #~ border_style: "dashed"
+    #~ border_width: "2px"
+  
+  - id: notas
+    icon: 🗒️
+    label: "Nota Rápida"
+    cover: false
+    border_color: "#f3a072"
+    border_style: "dashed"
+    border_width: "2px"
+    

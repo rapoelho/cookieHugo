@@ -1,0 +1,14 @@
+{{ $allPostsList := .AllPostsList }}
+{{ $postsList := $allPostsList }}
+{{ $featuredPostsList := slice }}
+{{ $pagination := slice }}
+
+{{ $pagination = (.Ctx.Paginate $postsList).Pages }}
+
+<div class="postList">
+		{{ range $pagination }}
+			{{ partial "postCard.html" . }}	
+		{{ end }}	
+	</div> 
+	
+{{ partial "pagination.html" .Ctx -}}

@@ -1,0 +1,22 @@
+<div class="postInfo">
+	<span>
+		󰃭  <time datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date | time.Format ":date_long" }}
+        </time> | 
+		
+	{{ if .Params.Tags }}
+		  
+		{{ range sort .Params.tags }}
+              <a href="/tags/{{ . | urlize }}">#{{ . }}</a>
+        {{ end }}
+	{{ end }}
+	
+	{{ if .Params.categories }}
+		|   
+		{{ range sort .Params.categories }}
+						<a  href="/categories/{{ . | urlize }}">#{{ . }}</a>
+		{{ end }}
+	{{ end }}
+	
+	</span>
+</div>

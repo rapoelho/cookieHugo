@@ -1,0 +1,25 @@
+{{ if gt .TotalPages 1 }}
+<nav class="pagination" aria-label="Pagination">
+    
+    {{ if .HasPrev }}
+    <a href="{{ .Prev.URL }}" class="paginationItem prev" aria-label='{{ T "paginationPrev" | default "Previous" }}'>
+        &larr; {{ T "pagination_prev" | default "Anterior" }}
+    </a>
+    {{ else }}
+    <span class="paginationItem disabled">&larr; {{ T "paginationPrev" | default "Previous" }}</span>
+    {{ end }}
+
+    <span class="paginationInfo">
+        {{ .PageNumber }} / {{ .TotalPages }}
+    </span>
+
+    {{ if .HasNext }}
+    <a href="{{ .Next.URL }}" class="paginationItem next" aria-label='{{ T "paginationNext" | default "Next" }}'>
+        {{ T "pagination_next" | default "Próximo" }} &rarr;
+    </a>
+    {{ else }}
+		<span class="paginationItem disabled">{{ T "paginationNext" | default "Next" }} &rarr;</span>
+    {{ end }}
+
+</nav>
+{{ end }}

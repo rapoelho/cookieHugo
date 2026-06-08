@@ -1,0 +1,17 @@
+{{ $termName := .key }}
+{{ $termData := .value }}
+
+<div class="postInfo">
+
+	<span>
+		   {{ $termData.Count }} {{ if eq $termData.Count 1 }}{{ i18n "onePost" | default "post" }}{{ else }}{{ i18n "manyPosts" | default "posts" }}{{ end }}
+	 
+		{{ $pages := $termData.Pages }}
+	  
+		{{ if $pages }}
+			{{ $latestPage := index $pages 0 }}
+			| 󰃭 {{ i18n "lastUpdated" | default "Last updated" }}: {{ $latestPage.Date | time.Format "02 Jan 2006" }}	  
+		{{ end }}	
+	</span>
+	
+</div>

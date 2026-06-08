@@ -1,0 +1,28 @@
+{{ define "main" }}
+	<div class="postList">
+		
+		<h1 class="title">
+			{{ i18n (printf "%sTitle" .Data.Plural) | default .Title }}
+		</h1>
+		
+		{{ range $key, $value := .Data.Terms }}
+			
+			{{ $termPage := $.Site.GetPage (printf "/%s/%s" $.Data.Plural $key) }}
+			
+			<div class="postCard">
+				<a href="{{ $.RelPermalink }}{{ $key | urlize }}">
+					<h2>{{ with $termPage }}{{ .Title }}{{ else }}{{ $key | humanize }}{{ end }}</h2>
+				</a>
+		  
+				{{ with $termPage }}
+					{{ if .Params.summary }}
+						{{ .Params.summary | markdownify }}
+					{{ end }}
+				{{ end }}
+				
+				{{ partial "taxoInfo.html" (dict "key" $key "value" $value) }}
+
+			</div>	
+		{{ end }}
+	</div>
+{{ end }}

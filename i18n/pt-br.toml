@@ -1,0 +1,83 @@
+# Posts
+[noPostsFound]
+other = "Nenhum post encontrado por aqui"
+
+[postsButton]
+other = "Posts"
+
+# Paginação
+[paginationPrev]
+other = "Anterior"
+
+[paginationNext]
+other = "Próximo"
+
+# Cartões das Listagens dos Posts
+[lastUpdated]
+other = "Última em"
+
+[onePost]
+other = "postagem"
+
+[manyPosts]
+other = "postagens"
+
+# Tradução das Taxonomias 
+[categoriesTitle]
+other = "Minhas Categorias"
+
+[tagsTitle]
+other = "Nuvem de Tags"
+
+[taxonomy_categories]
+other = "Categorias"
+
+[taxonomy_tags]
+other = "Tags"
+
+# Botão para continuar lendo a postagem
+[continueReading]
+other = "Leia mais"
+
+# Arquivo
+[allPosts]
+other = "Todos os Posts"
+
+# Busca
+[search]
+other = "Buscar"
+
+[searchPage]
+other = "Buscar Conteúdo"
+
+[searchPlaceholder]
+other = "Buscar..."
+
+[searchClear]
+other = "Limpar"
+
+[searchLoadMore]
+other = "Ver mais"
+
+[searchZeroResults]
+other = "Nenhum resultado encontrado para [SEARCH_TERM]"
+
+[searchManyResults]
+other = "[COUNT] resultados encontrados"
+
+[searchOneResult]
+other = "1 resultado encontrado"
+
+[searchSearching]
+other = "Buscando..."
+
+# Rodapé
+[themeCredits]
+other = "Criado com <a href='https://gohugo.io'>Hugo</a>. Tema cookieHugo, desenvolvido por <a href='https://rapoelho.com.br'>Rapoelho</a>. Sob licença <a href='https://www.gnu.org/licenses/agpl-3.0.html'>GNU AGPLv3</a>."
+
+# Erro 404
+[errorBadge]
+other = "Que feio... sem Cookies para você :("
+
+[errorDescription]
+other = "Desculpe, mas não encontramos a página que você está procurando. Talvez a página foi deletada, renomeada, esteja temporariamente indisponível ou nunca tenha existido. Você pode buscar por outra coisa no site."

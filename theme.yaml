@@ -1,0 +1,30 @@
+name: cookieHugo
+description: A cozy, dark, and lightweight theme based on the Catppuccin Mocha palette. Designed for tech blogs and art portfolios with built-in client-side search (powered by Pagefind) and smart pagination.
+homepage: https://github.com/rapoelho/cookieHugo 
+
+tags:
+  - blog
+  - portfolio
+  - dark
+  - minimal
+  - search
+  - i18n
+  - catppuccin
+  - responsive
+
+features:
+  - Client-side search with Pagefind
+  - Smart SEO indexing control
+  - Multi-language support (i18n)
+  - Modern SCSS with Catppuccin Mocha colors
+  - Static and Page Bundle image support with automated ALT tags
+
+license: AGPL-3.0-only
+licenselink: https://www.gnu.org/licenses/agpl-3.0.html
+
+author:
+  name: rapoelho
+  homepage: https://rapoelho.com.br
+
+min_version: "0.128.0" 
+min_hugo_version: "0.128.0"

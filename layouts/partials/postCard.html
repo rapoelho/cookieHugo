@@ -1,0 +1,27 @@
+{{ $currentFormat := .Section }}
+{{ $currentSettings := index (where hugo.Data.postTypes.types "id" $currentFormat) 0 }}
+
+<div class="postCard format-{{ $currentFormat }}" 
+     style="--type-border-color: {{ $currentSettings.border_color | default "transparent" }};
+            --type-border-style: {{ $currentSettings.border_style | default "solid" }};
+            --type-border-width: {{ $currentSettings.border_width | default "0px" }};">
+		
+	<span><a href="{{ .RelPermalink }}">
+		<h2><span class="contentIcon" data-tooltip="{{ $currentSettings.label }}">{{ with $currentSettings.icon }}{{ . }} {{ end }}</span>
+		{{ .Title | markdownify }}</h2></a></span>
+		
+	{{ partial "postInfo.html" . }}
+	
+	{{ partial "postCover.html" . }}
+	
+	{{ if .Truncated }}
+		{{ .Summary }}
+		
+		<p><a class="continueReading"href="{{ .Permalink }}">{{ i18n "continueReading" | default "Read More" }}  	</a></p>
+		
+	{{ else }}
+		{{ .Content }}
+	{{ end }}
+	
+	
+</div>

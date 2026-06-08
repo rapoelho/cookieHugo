@@ -1,0 +1,19 @@
+{{ define "main" }}
+	{{ $postsDir := .Site.Params.Posts | default (slice "posts" "post" "notas" "notes" ) }}
+	{{ $filteredPages := where .Site.RegularPages "Section" "in" $postsDir }}
+	
+	{{ $pagerSize := int (.Site.Params.pagination.pagerSize | default 12) }}	
+	{{ $paginator := .Paginate $filteredPages $pagerSize }}
+	
+	<div class="postList">
+		{{ .Content }}
+			    		
+		{{ range $paginator.Pages }}
+			{{ partial "postCard.html" . }}	
+		{{ end }}	
+	</div> 
+	
+	<!-- Passando o paginator limpo para o partial -->
+	{{ partial "pagination.html" $paginator }}
+	
+{{ end }}

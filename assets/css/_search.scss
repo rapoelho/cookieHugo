@@ -1,0 +1,100 @@
+/* ==========================================================================
+   ESTILOS COMPILADOS DA BUSCA (PAGEFIND)
+   ========================================================================== */
+
+/* Sobrescreve as variáveis internas que o Pagefind UI injeta */
+.pagefind-ui {
+    --pagefind-ui-background: #{$hl_bg};  
+    --pagefind-ui-text: #{$fg};           
+    --pagefind-ui-primary: #{$accent};     
+    --pagefind-ui-border: #{$stroke};      
+    --pagefind-ui-font: inherit;             
+}
+
+/* Container da página de busca */
+.container-busca {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Campo de Entrada de Busca (Input) */
+.pagefind-ui__search-input {
+    background-color: var(--pagefind-ui-background);
+    color: $fg;
+    border: 2px solid $hl_bg;
+    border-radius: $borderRadius;
+    padding: 8px 20px;
+
+    &:focus {
+        outline: none;
+        border-color: $accent !important;
+    }
+}
+
+/* Customização dos Cartões de Resultado (Estilo Cards do Blog) */
+.pagefind-ui__result {
+    background-color: var(--pagefind-ui-background) !important;
+    border: none !important;
+    border-radius: $borderRadius !important;
+    padding: 24px !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+}
+
+/* Título do post dentro do Card */
+.pagefind-ui__result-title a {
+    color: $accent !important;
+    font-family: $symbolsFont, $titleFont !important;
+    font-size: 1.3rem !important;
+    font-weight: bold;
+    text-decoration: none !important;
+
+    &:hover {
+        text-decoration: underline !important;
+    }
+}
+
+/* Texto de resumo (Snippet) */
+.pagefind-ui__result-excerpt {
+    color: $dim_fg !important; 
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-top: 8px !important;
+}
+
+/* Miniatura do Desenho (Lado Esquerdo) */
+.pagefind-ui__result-thumb {
+    width: 130px !important;
+    height: 90px !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+    order: -1 !important; 
+}
+
+/* Destaque das palavras buscadas dentro do texto */
+mark {
+    background-color: rgba($accent, 0.2) !important; /* Usa a função nativa de opacidade do Sass */
+    color: $fg !important;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Botão "Ver mais resultados" */
+.pagefind-ui__button {
+    background-color: transparent !important;
+    color: $fg !important;
+    border: 2px solid $accent !important;
+    border-radius: 4px !important;
+    padding: 10px 20px !important;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: $accent !important;
+        color: $bg !important; 
+    }
+}

@@ -1,0 +1,21 @@
+User-agent: *
+
+# Páginas que não devem ser anexadas
+Disallow: /busca/
+Disallow: /404.html
+Disallow: /404/
+
+# Bloqueio de Taxonomias (Configurado como FALSE no hugo.yaml)
+{{- $indexTaxonomies := .Site.Params.seo.index.taxonomies | default false -}}
+{{- if not $indexTaxonomies }}
+
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /categorias/
+{{- end }}
+
+# Páginas que devem ser indexadas
+Allow: /
+
+# Sitemap do Site
+Sitemap: {{ "sitemap.xml" | absURL }}

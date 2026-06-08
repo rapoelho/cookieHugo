@@ -1,0 +1,9 @@
+title: Hewyo!
+subtitle: Eu sou o Rapoelho e esse é o meu cantinho onde documento o que faço e falo do que gosto. Também faço uns desenhos em outro blog meu
+background: /images/site/background.webp
+
+links:
+  - title: Leia meus Posts
+    link: /posts
+  - title: Meus desenhos
+    link: https://cantinhodoromeo.com.br

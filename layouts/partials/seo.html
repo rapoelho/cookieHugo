@@ -1,0 +1,82 @@
+<!-- === Indexação === -->
+{{ $index_taxonomies := .Site.Params.seo.index.taxonomies | default false }}
+{{ $index_paginated := .Site.Params.seo.index.paginated | default false }}
+
+{{ $is_paginated_url := findRE `\/page\/\d+\/` .Permalink }}
+
+<!-- Indexação somente das páginas de posts. As Taxonomias e a Paginação são indexados somente quando for configurado no hugo.yaml -->
+
+{{- if or 
+    (eq .Layout "search") 
+    (eq .Section "404")
+    (and (not $index_taxonomies) (or (eq .Kind "taxonomy") (eq .Kind "term")))
+    (and (not $index_paginated) $is_paginated_url)
+-}}
+  <meta name="robots" content="noindex, follow">
+{{- else -}}
+  <meta name="robots" content="index, follow">
+{{- end -}}
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- === OpenGraph === -->
+<!-- Propriedades gerais do OpenGraph. Nome do site, URL e Título -->
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+
+<!-- Descrição das páginas. Se houver um campo Descrição, ele será usado. Se não, será priorizado o campo Summary do FrontMatter -->
+{{ $description := .Description | default .Params.summary | default .Summary | default .Site.Params.description }}
+{{ with $description }}
+  <meta property="og:description" content="{{ . }}">
+  <meta name="description" content="{{ . }}">
+{{ end }}
+
+<!--Qual é o tipo de conteúdo a ser indexado?-->
+{{ $isArticle := .IsPage }}
+<meta property="og:type" content="{{ if $isArticle }}article{{ else }}website{{ end }}">
+
+<!-- Configuração de Data para o Opengraph -->
+{{ if $isArticle }}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+  {{ if not .Lastmod.IsZero }}
+    <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">
+  {{ end }}
+  
+  {{ range .Params.tags }}
+    <meta property="article:tag" content="{{ . }}">
+  {{ end }}
+{{ end }}
+
+<!-- Para o campo Autor dos Cards do Twitter -->
+{{ $twitterHandle := .Params.twitterUser | default .Site.Params.seo.social.twitterUser }}
+{{ with $twitterHandle }}
+  <meta name="twitter:site" content="@{{ . }}">
+  <meta name="twitter:creator" content="@{{ . }}">
+{{ end }}
+
+<!-- Campo da Imagem para ser anexado ao OpenGraph -->
+{{ $ogImage := "" }}
+{{ $imageParam := .Params.image }}
+
+{{ if $imageParam }}
+    {{ with .Resources.GetMatch $imageParam }}
+        <!-- Cenário 1: Page Bundle -->
+        {{ $ogImage = .Permalink }}
+    {{ else }}
+        <!-- Cenário 2: Pasta Static  -->
+        {{ $ogImage = $imageParam | absURL }}
+    {{ end }}
+{{ else }}
+    <!-- Cenário 3: Sem imagem no post -->
+	{{ $fallbackImage := .Site.Params.seo.default_share_image | default "/images/site/share.webp" }}
+    {{ $ogImage = $fallbackImage | absURL }}
+{{ end }}
+
+{{ with $ogImage }}
+  <meta property="og:image" content="{{ . }}">
+  <meta property="og:image:secure_url" content="{{ . }}">
+  <!-- Cartão expandido para o Twitter/X exibir a imagem grande -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ . }}">
+{{ end }}

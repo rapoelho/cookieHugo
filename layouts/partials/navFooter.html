@@ -1,0 +1,11 @@
+<nav class="footerNav" aria-label="Taxonomies Navigation">
+	{{ range $key, $value := .Site.Taxonomies }}
+		<a href="{{ $key | relURL }}/" class="footerMenu">
+			{{ T (printf "taxonomy_%s" $key) | default ($key | humanize) }}
+		</a>
+	{{ end }}
+     
+     <a href="{{ "search/" | relURL }}" class="footerMenu">
+		{{ T "search" | default "Search" }}
+	</a>
+</nav>

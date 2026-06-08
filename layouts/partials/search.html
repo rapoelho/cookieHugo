@@ -1,0 +1,25 @@
+<div class="search-wrapper">
+	
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js"></script>
+    
+    <div id="search"></div>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new PagefindUI({ 
+                element: "#search", 
+                showImages: true,
+translations: {
+    placeholder: '{{ T "searchPlaceholder" | default "Search..." }}',
+    clear_search: '{{ T "searchClear" | default "Clear" }}',
+    load_more: '{{ T "searchLoadLore" | default "Load More" }}',
+    zero_results: '{{ T "searchZeroResults" | default "No results found for [SEARCH_TERM]" }}',
+    many_results: '{{ T "searchManyResults" | default "[COUNT] results found" }}',
+    one_result: '{{ T "searchOneResult" | default "1 result found" }}',
+    searching: '{{ T "searchSearching" | default "Searching..." }}'
+}
+            });
+        });
+    </script>
+</div>

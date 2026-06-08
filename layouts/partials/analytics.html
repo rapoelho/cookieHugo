@@ -1,0 +1,21 @@
+{{ if .Site.Params.Analytics.Plausible.ScriptUrl }}
+    {{ if .Site.Params.Analytics.Plausible.Domain }}
+        <script
+            async
+            defer
+            data-domain="{{ .Site.Params.Analytics.Plausible.Domain }}"
+            src="{{ .Site.Params.Analytics.Plausible.ScriptUrl }}"
+        ></script>
+    {{ end }}
+{{ end }}
+
+{{ if .Site.Params.Analytics.Umami.ScriptUrl }}
+    {{ if .Site.Params.Analytics.Umami.WebsiteId }}
+        <script
+            async
+            defer
+            data-website-id="{{ .Site.Params.Analytics.Umami.WebsiteId }}"
+            src="{{ .Site.Params.Analytics.Umami.ScriptUrl }}"
+        ></script>
+    {{ end }}
+{{ end }}

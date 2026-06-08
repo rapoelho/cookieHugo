@@ -1,0 +1,17 @@
+{{ define "main" }}
+	<div class="postContent">
+		
+			<h1>{{ .Title }}</h1>
+		
+			{{ partial "postInfo.html" . }}
+
+			{{ partial "postCover.html" . }}
+		
+			{{ partial "toc.html" . }}
+		
+		<main data-pagefind-body>
+			{{ .Content }}
+		</main>	
+		
+	</div>
+{{ end }}

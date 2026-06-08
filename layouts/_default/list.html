@@ -1,0 +1,21 @@
+{{ define "main" }}
+	{{ $pagerSize := int (.Site.Params.pagination.pagerSize | default 12) }}
+	{{ $paginator := .Paginate .Pages $pagerSize }}
+	
+	<div class="postList">
+		<main>
+			<h1>{{ .Title }}</h1>
+			{{ .Content }}
+	
+			{{ if .Pages }}
+				{{ range $paginator.Pages }}
+					{{ partial "listCard.html" . }}
+				{{ end }}
+				
+				{{ partial "pagination.html" $paginator }}
+		{{ else }}
+			<p>{{ T "noPostsFound" | default "No posts found here" }}</p>
+		{{ end }}
+		</main>	
+	</div>
+{{ end }}

@@ -1,0 +1,9 @@
+/* albert-sans-regular - latin_latin-ext */
+@font-face {
+	font-display: swap;
+    font-family: Albert Sans;
+    font-style: normal;
+	font-weight: 400;
+    src: local("Albert Sans"), url(albert-sans.woff2) format('woff2');
+}
+

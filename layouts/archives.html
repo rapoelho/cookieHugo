@@ -1,0 +1,21 @@
+{{- define "main" }}
+	<div class="postList">
+		<h1>{{ i18n "allPosts" | default "Archives" }}</h1>
+
+		{{ range (.Site.RegularPages.GroupByDate "2006") }}
+			{{- if ne .Key "0001" }}
+				{{- $year := replace .Key "0001" "" }}
+					<h2 class="archiveYear" id="{{ $year }}">{{- $year -}}</h2>
+						
+					{{- range .Pages.GroupByDate "January" }}
+						<h3 class="archiveMonth" id="{{ $year }}-{{ .Key }}">{{- .Key -}}</h3>
+						{{- range .Pages }}
+							{{- if eq .Kind "page" }}
+								{{ partial "listCard.html" . }}
+						{{ end }}
+					{{ end }}
+				{{ end }}		
+			{{ end }}
+		{{ end }}
+    </div>
+{{ end }}

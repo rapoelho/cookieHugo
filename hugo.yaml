@@ -1,0 +1,86 @@
+baseURL: "https://example.com/"
+title: "cookieBlog"
+theme: "cookieHugo"
+
+# Configurações de Idioma
+languageCode: "pt-br"
+defaultContentLanguage: pt
+defaultContentLanguageInSubdir: false
+
+# Ativação do robots.txt
+enableRobotsTXT: true 
+
+# Parâmetros Customizados do Tema
+params:
+  pagination:
+    pagerSize: 10 # Configuração da Paginação do tema
+    
+  posts: ["posts", "notas"] # Pastas onde estão as postagens do Blog
+  
+  description: "A cozy theme using Catppuccin Mocha." # Descrição para SEO
+  footer: "| Hewyo! " # Texto personalizado no Rodapé
+  
+# Configuração das Fontes do Blog
+  fonts: 
+    main: "Albert Sans"  # Fonte padrão do Blog
+    title: "Albert Sans" # Fonte para títulos do Blog
+    monospace: "JetBrains Mono"  # Fonte Monoespaçada
+
+# Configurações de SEO  
+  seo: 
+    # Configurações de Indexação
+    index:
+      taxonomies: false # Ativar a Indexação das Taxonomias. Padrão: false
+      paginated: false # Ativar a Indexação da Paginação. Padrão: false
+    
+    # Configurações do OpenGraph
+    opengraph:
+      defaultImage: "" # Imagem padrão do Opengraph. Padrão: /images/site/share.webp
+    social:
+      twitterUser: "" # Usuário do Twitter/X, para uso nos Card do Twitter/X.
+  
+# Configurações de Customização
+  customization: 
+    homeCover: false # Ativar a Capa da Home. Padrão: false
+    logo: "" # Configurar o Logo do site. Padrão: /images/site/logo.webp
+
+# Configurações dos Favicons
+  favicons:
+    ico: ""
+    png16: ""
+    png32: ""
+    png96: ""
+    apple: ""
+    android192: ""
+    android512: ""
+
+# Configurações de Analytics    
+  analytics:
+    # Para o Plausible
+    plausible:
+      scriptUrl: ""
+      domain: ""
+    # Para o Umami
+    umami:
+      scriptUrl: ""
+      websiteId: ""
+    
+services:    
+  # Para o Google Analytics
+  googleAnalytics:
+    id: ""
+
+# Configuração dos Menus
+menu:
+  # Menu das Redes Sociais
+  icons:
+    - identifier: "github"
+      name: "GitHub"
+      url: "https://github.com/rapoelho"
+      weight: 10
+
+# Configuração das Saídas
+outputs:
+  home:
+    - HTML
+    - RSS
