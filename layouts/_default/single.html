@@ -7,7 +7,9 @@
 
 			{{ partial "postCover.html" . }}
 		
-			{{ partial "toc.html" . }}
+			{{ if .Params.toc }}
+				{{ partial "toc.html" . }}
+			{{ end }}
 		
 		<main data-pagefind-body>
 			{{ .Content }}

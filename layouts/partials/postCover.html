@@ -1,12 +1,20 @@
 {{ $currentFormat := .Section }}
 {{ $currentSettings := index (where hugo.Data.postTypes.types "id" $currentFormat) 0 }}
 
-{{ if and .Params.ogImage $currentSettings.cover }}
-	{{ with .Resources.GetMatch .Params.Image }}
-	  <div class="postCover">
-		<a href="{{ $.RelPermalink }}">
-		  <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="cardImg" loading="lazy">
+{{ if and .Params.image $currentSettings.cover }}
+  
+	<div class="postCover">
+		<a href="{{ .RelPermalink }}">
+		
+			{{ $bundleImage := .Resources.GetMatch .Params.ogimage }}
+			
+			{{ if $bundleImage }}
+				<img src="{{ $bundleImage.RelPermalink }}" alt="{{ .Title }}" class="cardImg" loading="lazy">
+			{{ else }}
+				<img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="cardImg" loading="lazy">
+			{{ end }}
+   
 		</a>
-	  </div>
-	{{ end }}
+	</div>
+
 {{ end }}
