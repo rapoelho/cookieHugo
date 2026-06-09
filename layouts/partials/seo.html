@@ -69,7 +69,7 @@
     {{ end }}
 {{ else }}
     <!-- Cenário 3: Sem imagem no post -->
-	{{ $fallbackImage := .Site.Params.seo.default_share_image | default "/images/site/share.webp" }}
+	{{ $fallbackImage := .Site.Params.seo.opengraph.defaultImage | default "/images/site/share.webp" }}
     {{ $ogImage = $fallbackImage | absURL }}
 {{ end }}
 
