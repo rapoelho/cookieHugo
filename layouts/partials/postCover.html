@@ -1,7 +1,6 @@
 {{ $currentFormat := .Section }}
 {{ $currentSettings := index (where hugo.Data.postTypes.types "id" $currentFormat) 0 }}
 
-<<<<<<< HEAD
 {{ if and .Params.image $currentSettings.cover }}
   
 	<div class="postCover">
@@ -15,13 +14,6 @@
 				<img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="cardImg" loading="lazy">
 			{{ end }}
    
-=======
-{{ if and .Params.Image $currentSettings.cover }}
-	{{ with .Resources.GetMatch .Params.Image }}
-	  <div class="postCover">
-		<a href="{{ $.RelPermalink }}">
-		  <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="cardImg" loading="lazy">
->>>>>>> a2cd426 (Licença e correção em um parâmetro no seo.html)
 		</a>
 	</div>
 
