@@ -18,7 +18,7 @@ $accent: var(--accent);
 
 /* Variáveis */
 $mainFont: {{ .Site.Params.Fonts.Main | default "JetBrains Mono" }}; /* Fonte Principal do Site */
-$titleFont: {{ .Site.Params.Fonts.Title | default "$mainFont" }}; /* Fonte do Título */
+$titleFont: {{ .Site.Params.Fonts.Title | default "$mainFont" }}; /* Fonte do Título */ 
 $monoFont: {{ .Site.Params.Fonts.Monospace | default "JetBrains Mono" }}; /* Fonte Monoespaçada */
 $symbolsFont: "Symbols Nerd Font"; /* Fonte de Ícones */
 
