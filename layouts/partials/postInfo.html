@@ -11,12 +11,13 @@
         {{ end }}
 	{{ end }}
 	
-	{{ if .Params.categories }}
+	{{ if and .Params.categories (reflect.IsSlice .Params.categories) }}
 		|   
 		{{ range sort .Params.categories }}
 						<a  href="/categories/{{ . | urlize }}">#{{ . }}</a>
 		{{ end }}
+	{{ else if .Params.categories }}
+		|   <a href="/categories/{{ .Params.categories | urlize }}">#{{ .Params.categories }}</a>
 	{{ end }}
-	
 	</span>
 </div>
