@@ -6,7 +6,7 @@
 	<div class="postCover">
 		<a href="{{ .RelPermalink }}">
 		
-			{{ $bundleImage := .Resources.GetMatch .Params.ogimage }}
+			{{ $bundleImage := .Resources.GetMatch .Params.image }}
 			
 			{{ if $bundleImage }}
 				<img src="{{ $bundleImage.RelPermalink }}" alt="{{ .Title }}" class="cardImg" loading="lazy">
