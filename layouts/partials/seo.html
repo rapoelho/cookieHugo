@@ -58,8 +58,17 @@
 <!-- Campo da Imagem para ser anexado ao OpenGraph -->
 {{ $ogImage := "" }}
 {{ $imageParam := .Params.image }}
+{{ $ogImageParam := .Params.ogimage }}
 
-{{ if $imageParam }}
+{{ if $ogImageParam }}
+ {{ with .Resources.GetMatch $ogImageParam }}
+        <!-- Cenário 1: Page Bundle -->
+        {{ $ogImage = .Permalink }}
+    {{ else }}
+        <!-- Cenário 2: Pasta Static  -->
+        {{ $ogImage = $ogImageParam | absURL }}
+    {{ end }}
+{{ else if $imageParam }}
     {{ with .Resources.GetMatch $imageParam }}
         <!-- Cenário 1: Page Bundle -->
         {{ $ogImage = .Permalink }}
