@@ -1,0 +1,24 @@
+{{/* gotmplfmt-ignore-all */ -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+	{{ range where .Pages "Sitemap.Disable" "ne" true }}
+		{{ if and (not (eq .Kind "taxonomy")) (not (eq .Kind "term")) (not (eq .Kind "search")) (not (eq .Section "404")) }}
+ 
+	<url>
+		<loc>{{ .Permalink }}</loc>
+		{{ if not .Lastmod.IsZero }}<lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}
+		{{ with .Sitemap.ChangeFreq }}<changefreq>{{ . }}</changefreq>{{ end }}
+		 <priority>{{ if .IsHome }}1.0{{ else }}0.6{{ end }}</priority>
+		{{ if .IsTranslated }}
+			{{ range .AllTranslations }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.Locale }}"
+                href="{{ .Permalink }}"
+                /> {{ end }}{{ end }}
+    </url>
+		{{ end }}
+	{{ end }}
+</urlset>
