@@ -1,0 +1,20 @@
+{{ $src := .Get "src" }}
+{{- if not (urls.Parse $src).Scheme }}
+  {{- with .Page.Resources.GetMatch $src }}
+    {{ $src = .RelPermalink }}
+  {{- else }}
+    {{ $src = $src | relURL }}
+  {{- end }}
+{{- end }}
+
+<video 
+  src="{{ $src }}" 
+  width="{{ .Get "width" | default "100%" }}" 
+  height="{{ .Get "height" | default "auto" }}"
+  {{ if .Get "controls" | default true }}controls{{ end }}
+  {{ if .Get "autoplay" }}autoplay{{ end }}
+  {{ if .Get "loop" }}loop{{ end }}
+  {{ if .Get "muted" | default (.Get "autoplay") }}muted playsinline{{ end }}
+  preload="{{ .Get "preload" | default "metadata" }}">
+  Seu navegador não suporta a tag de vídeo.
+</video>
