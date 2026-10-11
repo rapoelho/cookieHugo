@@ -1,10 +1,8 @@
-
 # cookieHugo 🍪
 
 O cookieHugo é um tema escuro e minimalista para o [Hugo](https://gohugo.io), usando a paleta de cores do Catppuccin Mocha e ele foi desenhado para ser adaptado e atender diversos propósitos, servindo tanto para um [Blog sobre Informática](https://rapoelho.com.br) ou mesmo um [Blog onde artes podem ser postadas](https://madebyromeo.com).
 
----
-## ## ✨ Funcionalidades
+## ✨ Funcionalidades
 
 - 🔍 **Busca interna com Pagefind:** Um sistema de pesquisa leve e que não exige Banco de Dados.
 - 📦 **Tipos de Postagens:** Os cartões das postagens na tela inicial e em outras partes internas podem ser configurados. Notas podem ter uma borda de uma cor, Artigos podem ter capas. Você decide.
@@ -69,8 +67,6 @@ types:
     border_color: "#f3a072"
     border_style: "dashed"
     border_width: "2px"
-    
-
 ```
 
 E indo para cada uma das opções:
@@ -83,7 +79,7 @@ E indo para cada uma das opções:
 - **`border_style`:** Aqui se aplica o estilo da Borda que será usada ao redor das postagens daquele tipo;
 - **`border_width`:** E por fim, aqui se aplica a grossura da borda que será usada ao redor das postagens daquele tipo.
 
-### **🏠 Capa da Página Inicial:**
+### 🏠 Capa da Página Inicial
 
 Outra funcionalidade desse tema é a possibilidade de ativar uma Capa na Página Inicial, em que se pode colocar algum texto sobre o Blog e alguns links. Isso é alimentado pelo arquivo `homeCover.yml` e ele é assim:
 
@@ -272,7 +268,6 @@ E descrevendo cada uma dessas opções:
 - **`postAlbum`:** Essa é a opção que define se será postada múltiplas imagens em um post.
 - **`albumImages`:** Aqui é onde se define a lista das imagens a serem postadas.
 
----
 ## 🚀 Instalando o Tema
 
 Dentro da raiz do seu projeto Hugo, execute o seguinte comando para adicionar o tema como um submódulo Git:
@@ -287,7 +282,6 @@ Em seguida, adicione o nome do tema no seu arquivo principal de configuração (
 theme: "cookieHugo"
 ```
 
----
 ## ⚙️ Configuração Recomendada
 
 Para tirar o máximo proveito do controle de SEO, da busca interna e das datas localizadas do tema, configure o seu arquivo **`hugo.yaml`** seguindo este modelo de referência:
@@ -382,14 +376,12 @@ outputs:
 
 ```
 
----
 ## 📝 Licença e Créditos
 
 Este projeto está licenciado sob a licença **GNU Affero General Public License v3.0 (AGPLv3)**. Consulte o arquivo `LICENSE` para obter mais detalhes.
 
 O **cookieHugo** foi desenvolvido por **Rapoelho** e utiliza trechos de código e inspirações lógicas do tema [Ficurinia](https://github.com), licenciado sob a AGPLv3. Um agradecimento especial ao autor original pela contribuição ao ecossistema do Hugo.
 
----
 ## 📑 Changelog
 
 - **11-Out-2026:** Adicionado o RSS Social
