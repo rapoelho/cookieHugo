@@ -1,9 +1,9 @@
 title: Hewyo!
-subtitle: Eu sou o Rapoelho e esse é o meu cantinho onde documento o que faço e falo do que gosto. Também faço uns desenhos em outro blog meu
-background: /images/site/background.webp
+subtitle: Esse é o cookieHugo, um tema aconchegante baseado na paleta do Catppuccin Mocha
+background: 
 
 links:
-  - title: Leia meus Posts
-    link: /posts
-  - title: Meus desenhos
-    link: https://cantinhodoromeo.com.br
+  - title: Exemplo de Blog com o Tema
+    link: https://rapoelho.com.br
+  - title: Todos os Posts
+    link: /archives

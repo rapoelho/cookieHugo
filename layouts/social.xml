@@ -1,0 +1,78 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="https://www.rssboard.org/media-rss">
+  <channel>
+{{ range (where (where .Site.RegularPages "Section" "ne" "slides") ".Params.skip" "ne" "true") }}
+    <item>
+		{{ $post := .Permalink }}
+		<title>{{ .Title }}</title>
+		<link>{{ .Permalink }}</link>
+		<post>{{ if .Params.Social.Post }}{{.Params.Social.Post}}{{else}}false{{end}}</post>
+		
+		{{ if ( .Params.social.post | default false) }}
+			<longCaption>{{ if .Params.Social.longCaption }}
+				{{ printf "<![CDATA[" | safeHTML }}{{ .Params.Social.longCaption | safeHTML }}{{ printf "]]>" | safeHTML }}
+			{{ else if .Params.Summary }}
+				{{ printf "<![CDATA[" | safeHTML }}{{ .Params.Summary | safeHTML }}{{ printf "]]>" | safeHTML }}
+			{{ end }}</longCaption>
+			{{ if .Params.Social.shortCaption }}
+				<shortCaption>{{ printf "<![CDATA[" | safeHTML }}{{ .Params.Social.shortCaption | safeHTML }}{{ printf "]]>" | safeHTML }}</shortCaption>
+			{{ end }}			
+		{{ end }}
+		
+		<media>{{ if .Params.Social.Media }}{{.Params.Social.Media}}{{else}}false{{end}}</media>
+		
+		
+		<postImage>{{ if .Params.Social.postImage }}{{.Params.Social.postImage}}{{else}}false{{end}}</postImage>
+		
+		{{ if .Params.Social.postImage | default false }}	
+			{{ if .Params.Social.Image }}
+				<image>
+					{{ if (not (strings.HasPrefix .Params.social.image "/")) }}
+						{{.Permalink}}{{.Params.social.image}}
+					{{ else }}
+						{{.Params.social.image | absURL }}
+					{{ end }}
+				</image>
+			{{ else if .Params.image }}
+				<image>
+					{{ if (not (strings.HasPrefix .Params.image "/"))}}
+						{{.Permalink}}{{.Params.image}}
+					{{ else }}
+						{{ .Params.image | absURL }}
+					{{ end }}
+				</image>
+			{{ end }}
+		{{ end }}
+				
+		<postAlbum>{{ if .Params.Social.postAlbum }}{{.Params.Social.postImage}}{{else}}false{{end}}</postAlbum>
+		
+		{{ if .Params.Social.postAlbum | default false }}	
+			{{ if .Params.Social.albumImages }}
+				<album>
+					{{ range .Params.Social.albumImages }}
+					{{ if (not (strings.HasPrefix . "/")) }}
+						{{$post}}{{ . }} ,
+					{{ else }}
+						{{ . | absURL }} , 
+					{{ end }}
+				{{end}} 
+				</album>
+			{{ end }}
+		{{ end }}
+		
+		<postVideo>{{ if .Params.Social.postVideo }}{{.Params.Social.postVideo}}{{else}}false{{end}}</postVideo>
+
+		{{ if .Params.Social.postVideo | default false }}	
+			<video>
+				{{ if (not (strings.HasPrefix .Params.social.Video "/")) }}
+					{{.Permalink}}{{.Params.social.Video}}
+				{{ else }}
+					{{.Params.social.Video | absURL }}
+				{{ end }}
+			</video>
+		{{ end }}
+		
+	</item>
+{{ end }}
+  </channel>
+</rss>
